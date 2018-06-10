@@ -15,10 +15,9 @@ class Header extends React.Component {
 
   render() {
     return (
-        
         <div id="preloader1">
             <div id="status"></div>
-        </div> 
+        </div>        
     )
   }
 }

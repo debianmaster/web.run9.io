@@ -6,7 +6,7 @@ const Footer = () => (
     <div class="columns">
       <div class="column">
         <div class="footer-logo">
-          <img src="http://run9io-prod.apps.run9.io/img/logos/fresh-white.svg"/>
+          <img src="img/logos/fresh-white.svg"/>
         </div>
       </div>
       <div class="column">

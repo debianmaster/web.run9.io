@@ -1,5 +1,30 @@
 import React from 'react'
 import { section } from 'reactbulma'
+import Keycloak from "keycloak-js";
+
+
+const kc = Keycloak('/keycloak.json');
+const token = localStorage.getItem('kc_token');
+const refreshToken = localStorage.getItem('kc_refreshToken');
+kc.init().then(function(authenticated) {
+  alert(authenticated ? 'authenticated' : 'not authenticated');
+  if (authenticated) {
+    updateLocalStorage();
+  }
+  else{
+    kc.login();
+  }
+
+}).catch(function(ex) {
+   console.log(ex);
+});
+
+
+const updateLocalStorage = () => {
+  //localStorage.setItem('kc_token', kc.token);
+  //localStorage.setItem('kc_refreshToken', kc.refreshToken);
+}; 
+updateLocalStorage();
 
 class Intro extends React.Component {
 
@@ -7,22 +32,25 @@ class Intro extends React.Component {
     isActive: false,
   }
 
-  toggleNav = () => {
-    this.setState(prevState => ({
-      isActive: !prevState.isActive
-    }))
-  }
+
+  handleLogin = (e) => {
+   
+    kc.login();
+
+  };
+
+ 
 
   render() {
     return (
-<section class="hero is-fullheight is-default is-bold is-slanted">
+<section class="hero is-fullheight is-default is-bold is-slanted" id="home">
   <div class="navbar-wrapper navbar-sticky">
   <div class="hero-head">
     <div class="container">
       <nav class="navbar">
         <div class="navbar-start">
-          <a class="navbar-item" href="http://run9io-prod.apps.run9.io/">
-            <img class="brand" src="http://run9io-prod.apps.run9.io/img/logos/fresh.svg" alt="Main navbar logo"/>
+          <a class="navbar-item" href="#home">
+            <img class="brand" src="img/logos/fresh.svg" alt="Main navbar logo"/>
           </a>
           <a id="panel-trigger" href="#left-panel" class="navbar-item navbar-inner hamburger-btn" href="javascript:void(0);">
             <span class="menu-toggle">
@@ -45,7 +73,7 @@ class Intro extends React.Component {
           <a class="navbar-item is-tab navbar-inner" href="/">
             Features
           </a>
-          <a class="navbar-item is-tab navbar-inner" href="/">
+          <a class="navbar-item is-tab navbar-inner" href="#plans">
             Pricing
           </a>
           <div class="navbar-item is-drop">
@@ -59,7 +87,11 @@ class Intro extends React.Component {
                 <ul><li>Careers</li><li>Contact US</li></ul>
               </div>
             </div>
-          </div><span class="navbar-item">
+          </div>
+          <a class="navbar-item is-tab navbar-inner" onClick={this.handleLogin}>
+            Login
+          </a>          
+          <span class="navbar-item">
             <a class="button cta is-large rounded secondary-btn raised">
               Sign up
             </a>
@@ -86,7 +118,7 @@ class Intro extends React.Component {
           </p></div>
         <div class="column is-5 is-offset-2">
           <figure class="image is-4by3">
-            <img src="http://run9io-prod.apps.run9.io/img/illustrations/worker.svg" alt="Description"/>
+            <img src="img/illustrations/worker.svg" alt="Description"/>
           </figure>
         </div>
       </div>
@@ -99,12 +131,12 @@ class Intro extends React.Component {
         <ul>
           <li>
             <a>
-              <img class="partner-logo" src="img/clients/systek.svg"/>
+              <img class="partner-logo" src="img/logos/clients/systek.svg"/>
             </a>
           </li>
           <li>
             <a>
-              <img class="partner-logo" src="img/clients/tribe.svg"/>
+              <img class="partner-logo" src="img/logos/clients/tribe.svg"/>
             </a>
           </li></ul>
       </div>
