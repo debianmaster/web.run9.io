@@ -1,0 +1,8 @@
+{
+    "realm": "run9io",
+    "auth-server-url": "http://login-auth.apps.run9.io/auth",
+    "ssl-required": "external",
+    "resource": "account",
+    "public-client": true
+  }
+  
