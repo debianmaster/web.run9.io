@@ -12,7 +12,7 @@ kc.init().then(function(authenticated) {
     updateLocalStorage();
   }
   else{
-    kc.login();
+    //kc.login();
   }
 
 }).catch(function(ex) {
