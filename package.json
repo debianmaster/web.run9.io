@@ -5,6 +5,7 @@
   "dependencies": {
     "keycloak-js": "^4.0.0-beta.3",
     "react": "^16.4.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.0",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
@@ -12,15 +13,6 @@
     "reactbulma": "^3.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "proxy": {
-    "/": {
-      "target": "http://login-auth.apps.run9.io/auth/",
-      "changeOrigin": true
-    }
+    "start": "react-scripts start"
   }
 }
