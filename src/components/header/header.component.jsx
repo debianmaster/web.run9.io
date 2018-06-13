@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './header.component.css';
 
 class HeaderComponent extends Component{
     
     render(){
         return(
-            <section className="hero is-fullheight is-default is-bold is-slanted">
+            <section className="is-default is-bold is-slanted" id="HeaderContent">
                 <div className="navbar-wrapper navbar-sticky">
                     <div className="hero-head">
                         <div className="container">
