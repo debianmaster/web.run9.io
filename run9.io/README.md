@@ -9,16 +9,17 @@ https://github.com/openshift/origin/releases/tag/v3.9.0
 
 - run following commands to bring openshift webconsole
 ```sh
+
  mkdir  ~/git-repos
  cd ~/git-repos
- git clone git@github.com:<your-fork>/origin-web-console.git
+ git clone https://github.com/openshift/origin-web-console.git
 
  cd ~/git-repos
- git clone git@github.com:<your-fork>/origin-web-common.git
+ git clone https://github.com/openshift/origin-web-common.git
 
 
  cd ~/git-repos
- git clone git@github.com:<your-fork>/origin-web-catalog.git
+ git clone https://github.com/openshift/origin-web-catalog.git
 
  cd ~/git-repos/origin-web-common
  bower link
